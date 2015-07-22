@@ -1,0 +1,22 @@
+<h1>CONFIGURACION - PATROCINADORES</h1>
+<table>
+	<thead>
+		<tr>
+			<th>Logo</th>
+			<th>Cambiar</th>
+			<th>Eliminar</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @patrocinadores.each do |patrocinador| %>
+			<tr>
+				<td><%= image_tag patrocinador.avatar.url(:medium) %></td>
+				<td><%= link_to "Cambiar Imagen (editar)", edit_sponsor_path(patrocinador) %> |</td>
+				<td><%= link_to "Eliminar Imagen (eliminar)",sponsor_path(patrocinador), method: :delete %></td>
+			</tr>
+		<% end %>		
+	</tbody>
+</table>
+
+<%= link_to "Nuevo patrocinador", new_sponsor_path %>
+<%= link_to "Terminar la configuracion", '#' %>
